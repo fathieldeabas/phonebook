@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  web:
+    build: .
+    command: "python manage.py makemigrations phonebook &&
+              python manage.py migrate phonebook &&
+              python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_DB: my_project
+      POSTGRES_USER: my_user
+      POSTGRES_PASSWORD: my_password
+    volumes:
+      - .:/var/lib/postgresql
+      - postgresql_volume:/var/lib/postgresql/data
+    ports:
+      - "5431:5431"
+
+volumes:
+  static_volume:
+  media_volume:
+  postgresql_volume:
+      

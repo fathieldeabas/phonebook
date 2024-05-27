@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact List</title>
+</head>
+<body>
+    <h1>Contact List</h1>
+    <ul>
+        {% for contact in object_list %}
+            <li>{{ contact.name }} - {{ contact.number }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
