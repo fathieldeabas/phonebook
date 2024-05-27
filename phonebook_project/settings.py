@@ -82,15 +82,21 @@ WSGI_APPLICATION = 'phonebook_project.wsgi.application'
 #     }
 # }
 DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': 'my_project',
-           'USER': 'my_user',
-           'PASSWORD': 'my_password',
-           'HOST': 'db',
-           'PORT': 5432,
-       }
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
+# DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#            'NAME': 'my_project',
+#            'USER': 'my_user',
+#            'PASSWORD': 'my_password',
+#            'HOST': 'db',
+#            'PORT': 5432,
+#        }
+#    }
 
 
 # Password validation
@@ -139,4 +145,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     "/var/www/static/",
+]
+
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+    "127.0.0.1",
+    "localhost",
 ]
